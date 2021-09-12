@@ -1,9 +1,11 @@
 package coder.giz.android.compose.tutorial
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,79 +14,94 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coder.giz.android.compose.R
 import coder.giz.android.compose.Tutorial
+import coder.giz.android.compose.ui.theme.GComposeTripTheme
 
 /**
- * 课程2：布局（Layout）
- *
  * Created by GizFei on 2021/9/12
  */
-@Tutorial(lesson = 2, title = "Layouts")
-class LayoutsActivity : ComponentActivity() {
+@Tutorial(lesson = 3, title = "Material Design")
+class MaterialDesignActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MessageCard(msg = Message.GIZ)
+            // 使用 Material 主题包裹布局
+            GComposeTripTheme {
+                MessageCard(msg = Message.GIZ)
+            }
         }
     }
 
 }
 
-data class Message(val author: String, val body: String) {
-    companion object {
-        val GIZ = Message("Giz", "Giz Compose Trip")
-    }
-}
-
 @Composable
 private fun MessageCard(msg: Message) {
-    // 添加 padding
     Row(
         modifier = Modifier.padding(all = 8.dp),
     ) {
         Image(
-            // 添加 drawable 图片资源
             painter = painterResource(id = R.drawable.avatar),
             contentDescription = "Content Description",
             modifier = Modifier
-                .size(40.dp)         // 设置图片宽度
-                .clip(CircleShape),  // 裁剪图片成圆角
-            alignment = Alignment.Center
+                .size(40.dp)
+                .clip(CircleShape)
+                // 添加边框
+                .border(1.5.dp, MaterialTheme.colors.secondary, CircleShape)
         )
 
-        // 添加间隔
         Spacer(modifier = Modifier.width(8.dp))
-        
+
         Column {
-            Text(text = "Author: ${msg.author}", color = Color.White)
+            Text(
+                text = "Author: ${msg.author}",
+                color = MaterialTheme.colors.secondaryVariant,
+                style = MaterialTheme.typography.subtitle2  // 排版风格
+            )
+
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = "Body: ${msg.body}", color = Color.White)
+
+            // 使用带阴影的“卡片”包裹
+            Surface(
+                shape = MaterialTheme.shapes.medium,
+                elevation = 2.dp
+            ) {
+                Text(
+                    text = "Body: ${msg.body}",
+                    style = MaterialTheme.typography.body2, // 排版风格
+                    modifier = Modifier.padding(4.dp)
+                )
+            }
         }
     }
 }
 
 @Preview(
-    name = "LayoutsPreview",
+    name = "Light Mode",
     group = "TutorialPreviewGroup",
-    showSystemUi = true,
     showBackground = true,
-    backgroundColor = 0xFF03DAC5,
-    device = Devices.PIXEL_2
+//    showSystemUi = true,
+)
+@Preview(
+    name = "Dark Mode",
+    group = "TutorialPreviewGroup",
+//    showSystemUi = true,
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,   // 暗黑模式预览
 )
 @Composable
-fun LayoutsPreview() {
-    MessageCard(msg = Message.GIZ)
+fun MaterialDesignPreview() {
+    GComposeTripTheme {
+        MessageCard(msg = Message.GIZ)
+    }
 }
-

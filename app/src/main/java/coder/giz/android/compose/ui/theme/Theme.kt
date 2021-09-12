@@ -38,6 +38,7 @@ fun GComposeTripTheme(
         LightColorPalette
     }
 
+    // 使用自定义属性覆盖原生 MaterialTheme 中的对应属性
     MaterialTheme(
         colors = colors,
         typography = Typography,

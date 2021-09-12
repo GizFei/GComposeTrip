@@ -9,5 +9,6 @@ package coder.giz.android.compose
  * [官方入门教程](https://developer.android.google.cn/jetpack/compose/tutorial)
  */
 annotation class Tutorial(
-    val lesson: Int
+    val lesson: Int,
+    val title: String,
 )

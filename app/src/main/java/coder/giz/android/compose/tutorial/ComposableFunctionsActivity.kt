@@ -13,7 +13,7 @@ import coder.giz.android.compose.Tutorial
 /**
  * Created by GizFei on 2021/9/12
  */
-@Tutorial(lesson = 1)
+@Tutorial(lesson = 1, title = "Composable Layouts")
 class ComposableFunctionsActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +27,7 @@ class ComposableFunctionsActivity : ComponentActivity() {
 
 // 创建Composable函数
 @Composable
-fun MessageCard(name: String) {
+private fun MessageCard(name: String) {
     Text(text = "Hello $name!")
 }
 
@@ -38,7 +38,7 @@ fun MessageCard(name: String) {
     locale = "zh",
     showSystemUi = true,
     showBackground = true,
-    backgroundColor = 0xFF1B3CFF,
+    backgroundColor = 0xFF03DAC5,
     device = Devices.PIXEL_2
 )
 @Composable
