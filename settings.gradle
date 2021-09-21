@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "GComposeTrip"
 include ':app'
+include ':codelabs'
