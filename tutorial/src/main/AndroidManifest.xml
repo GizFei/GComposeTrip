@@ -9,10 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GComposeTrip">
         <activity
-            android:name=".CodelabsMainActivity"
+            android:name=".TutorialMainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.GComposeTrip.NoActionBar">
+            android:theme="@style/Theme.GComposeTrip">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

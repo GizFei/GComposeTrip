@@ -4,12 +4,14 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    namespace 'coder.giz.android.compose.codelabs'
+
+    compileSdk androidCompileSdk as int
 
     defaultConfig {
-        applicationId "coder.giz.android.compose.codelabs"
-        minSdk 23
-        targetSdk 30
+        applicationId "coder.giz.android.compose"
+        minSdk androidMinSdk as int
+        targetSdk androidTargetSdk as int
         versionCode 1
         versionName "1.0"
 
@@ -31,14 +33,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        useIR = true
     }
     buildFeatures {
         compose true
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
     }
     packagingOptions {
         resources {
