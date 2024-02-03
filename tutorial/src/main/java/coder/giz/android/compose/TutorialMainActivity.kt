@@ -1,8 +1,6 @@
 package coder.giz.android.compose
 
-import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -11,6 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -27,7 +26,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coder.giz.android.compose.compose_museum.ComposeMuseumMainActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
+import coder.giz.android.compose.utils.launch
 
 class TutorialMainActivity : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -44,6 +45,7 @@ class TutorialMainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialMainActivityContentView() {
+    val context = LocalContext.current
     // A surface container using the 'background' color from the theme
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -60,6 +62,13 @@ fun TutorialMainActivityContentView() {
                 }
             )
             Greeting("Android")
+            Button(
+                onClick = {
+                    context launch ComposeMuseumMainActivity::class
+                }
+            ) {
+                Text(text = "Compose Museum 教程")
+            }
         }
     }
 }

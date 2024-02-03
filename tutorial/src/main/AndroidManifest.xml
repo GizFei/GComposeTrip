@@ -19,6 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".compose_museum.ComposeMuseumMainActivity"
+            android:theme="@style/Theme.GComposeTrip"
+            />
+        <activity
+            android:name=".compose_museum.c1_start.CMStartActivity"
+            android:theme="@style/Theme.GComposeTrip"
+            />
     </application>
 
 </manifest>
