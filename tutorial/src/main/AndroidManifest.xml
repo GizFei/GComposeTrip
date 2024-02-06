@@ -27,6 +27,10 @@
             android:name=".compose_museum.c1_start.CMStartActivity"
             android:theme="@style/Theme.GComposeTrip"
             />
+        <activity
+            android:name=".compose_museum.c2_basic_component.CMElementAlertDialogActivity"
+            android:theme="@style/Theme.GComposeTrip"
+            />
     </application>
 
 </manifest>
