@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coder.giz.android.compose.compose_museum.c1_start.CMStartActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementAlertDialogActivity
+import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementButtonActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
 import coder.giz.android.compose.utils.launch
 
@@ -62,6 +63,12 @@ class ComposeMuseumMainActivity : ComponentActivity() {
                 modifier = Modifier.padding(start = 24.dp),
             ) {
                 Text(text = "AlertDialog")
+            }
+            Button(
+                onClick = { context launch CMElementButtonActivity::class },
+                modifier = Modifier.padding(start = 24.dp)
+            ) {
+                Text(text = "Button")
             }
         }
     }
