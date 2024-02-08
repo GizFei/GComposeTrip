@@ -17,8 +17,10 @@ import androidx.compose.ui.unit.dp
 import coder.giz.android.compose.compose_museum.c1_start.CMStartActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementAlertDialogActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementButtonActivity
+import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementCardActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
 import coder.giz.android.compose.utils.launch
+import kotlin.reflect.KClass
 
 /**
  * Created by GizFei on 2024/2/1
@@ -37,7 +39,6 @@ class ComposeMuseumMainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     private fun ContentView() {
-        val context = LocalContext.current
         Column {
             TopAppBar(
                 title = { Text(text = "Compose Museum 教程") }
@@ -47,29 +48,38 @@ class ComposeMuseumMainActivity : ComponentActivity() {
                 text = "入门",
                 modifier = Modifier.padding(start = 16.dp)
             )
-            Button(
-                onClick = { context launch CMStartActivity::class },
-                modifier = Modifier.padding(start = 24.dp)
-            ) {
-                Text(text = "初识 Jetpack Compose")
-            }
+            CommonLaunchActivityButton(
+                btnText = "初识 Jetpack Compose",
+                clz = CMStartActivity::class,
+            )
 
             Text(
                 text = "基础组件",
                 modifier = Modifier.padding(start = 16.dp, top = 16.dp)
             )
-            Button(
-                onClick = { context launch CMElementAlertDialogActivity::class },
-                modifier = Modifier.padding(start = 24.dp),
-            ) {
-                Text(text = "AlertDialog")
-            }
-            Button(
-                onClick = { context launch CMElementButtonActivity::class },
-                modifier = Modifier.padding(start = 24.dp)
-            ) {
-                Text(text = "Button")
-            }
+            CommonLaunchActivityButton(
+                btnText = "AlertDialog",
+                clz = CMElementAlertDialogActivity::class,
+            )
+            CommonLaunchActivityButton(
+                btnText = "Button",
+                clz = CMElementButtonActivity::class,
+            )
+            CommonLaunchActivityButton(
+                btnText = "Card",
+                clz = CMElementCardActivity::class,
+            )
+        }
+    }
+
+    @Composable
+    private fun CommonLaunchActivityButton(btnText: String, clz: KClass<out ComponentActivity>) {
+        val context = LocalContext.current
+        Button(
+            onClick = { context launch clz },
+            modifier = Modifier.padding(start = 24.dp)
+        ) {
+            Text(text = btnText)
         }
     }
 
