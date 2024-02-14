@@ -3,8 +3,10 @@ package coder.giz.android.compose.compose_museum
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
@@ -24,6 +26,7 @@ import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementIcon
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementImageActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementSliderActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementTextActivity
+import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementTextFieldActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
 import coder.giz.android.compose.utils.launch
 import kotlin.reflect.KClass
@@ -45,7 +48,9 @@ class ComposeMuseumMainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     private fun ContentView() {
-        Column {
+        Column(
+            modifier = Modifier.verticalScroll(ScrollState(0))
+        ) {
             TopAppBar(
                 title = { Text(text = "Compose Museum 教程") }
             )
@@ -98,6 +103,10 @@ class ComposeMuseumMainActivity : ComponentActivity() {
             CommonLaunchActivityButton(
                 btnText = "Text",
                 clz = CMElementTextActivity::class,
+            )
+            CommonLaunchActivityButton(
+                btnText = "TextField",
+                clz = CMElementTextFieldActivity::class,
             )
         }
     }

@@ -52,7 +52,7 @@ class CMElementTextActivity : TutorialBaseActivity() {
     @Composable
     override fun ContentView() {
         Column(
-            modifier = Modifier.verticalScroll(ScrollState(1000))
+            modifier = Modifier.verticalScroll(ScrollState(0))
         ) {
             Text(text = "HelloWorld")
 
