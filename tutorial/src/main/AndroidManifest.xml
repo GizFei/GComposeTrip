@@ -50,6 +50,10 @@
             android:name=".compose_museum.c2_basic_component.CMElementIconButtonActivity"
             android:theme="@style/Theme.GComposeTrip"
             />
+        <activity
+            android:name=".compose_museum.c2_basic_component.CMElementImageActivity"
+            android:theme="@style/Theme.GComposeTrip"
+            />
     </application>
 
 </manifest>

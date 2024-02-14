@@ -8,7 +8,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -29,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import coder.giz.android.compose.compose_museum.ComposeMuseumMainActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
 import coder.giz.android.compose.utils.launch
+import kotlin.reflect.KClass
 
 class TutorialMainActivity : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -56,19 +59,17 @@ fun TutorialMainActivityContentView() {
                 title = { Text(text = "HHH") },
                 navigationIcon = {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
-                        contentDescription = "KKK"
+                        painter = painterResource(id = R.drawable.compose_museum_logo),
+                        contentDescription = null,
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             )
             Greeting("Android")
-            Button(
-                onClick = {
-                    context launch ComposeMuseumMainActivity::class
-                }
-            ) {
-                Text(text = "Compose Museum 教程")
-            }
+            CommonLaunchActivityButton(
+                btnText = "Compose Museum 教程",
+                clz = ComposeMuseumMainActivity::class
+            )
         }
     }
 }
@@ -89,6 +90,19 @@ fun Greeting(name: String) {
             },
         color = Color(0xFF00FFFF)
     )
+}
+
+@Composable
+private fun CommonLaunchActivityButton(btnText: String, clz: KClass<out ComponentActivity>) {
+    val context = LocalContext.current
+    Button(
+        onClick = { context launch clz },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp)
+    ) {
+        Text(text = btnText)
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
