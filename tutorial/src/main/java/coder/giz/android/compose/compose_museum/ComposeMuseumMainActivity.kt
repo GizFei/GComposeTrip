@@ -23,6 +23,7 @@ import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementIcon
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementIconButtonActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementImageActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementSliderActivity
+import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementTextActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
 import coder.giz.android.compose.utils.launch
 import kotlin.reflect.KClass
@@ -93,6 +94,10 @@ class ComposeMuseumMainActivity : ComponentActivity() {
             CommonLaunchActivityButton(
                 btnText = "Slider",
                 clz = CMElementSliderActivity::class,
+            )
+            CommonLaunchActivityButton(
+                btnText = "Text",
+                clz = CMElementTextActivity::class,
             )
         }
     }
