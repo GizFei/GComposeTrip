@@ -27,6 +27,7 @@ import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementImag
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementSliderActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementTextActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementTextFieldActivity
+import coder.giz.android.compose.compose_museum.c3_layout.CMLayoutColumnActivity
 import coder.giz.android.compose.compose_museum.c3_layout.CMLayoutRowActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
 import coder.giz.android.compose.utils.launch
@@ -117,6 +118,10 @@ class ComposeMuseumMainActivity : ComponentActivity() {
             CommonLaunchActivityButton(
                 btnText = "Row",
                 clz = CMLayoutRowActivity::class,
+            )
+            CommonLaunchActivityButton(
+                btnText = "Column",
+                clz = CMLayoutColumnActivity::class,
             )
         }
     }

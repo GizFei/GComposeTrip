@@ -131,7 +131,7 @@ class CMLayoutRowActivity : TutorialBaseActivity() {
     @Composable
     private fun RowContent() {
         IconButton(
-            onClick = { /*TODO*/ },
+            onClick = {},
             modifier = Modifier
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.primaryContainer),
@@ -140,7 +140,7 @@ class CMLayoutRowActivity : TutorialBaseActivity() {
         }
 
         IconButton(
-            onClick = { /*TODO*/ },
+            onClick = {},
             modifier = Modifier
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.primary),
@@ -149,7 +149,7 @@ class CMLayoutRowActivity : TutorialBaseActivity() {
         }
 
         IconButton(
-            onClick = { /*TODO*/ },
+            onClick = {},
             modifier = Modifier
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.secondary),

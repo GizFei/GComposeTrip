@@ -70,6 +70,10 @@
             android:name=".compose_museum.c3_layout.CMLayoutRowActivity"
             android:theme="@style/Theme.GComposeTrip"
             />
+        <activity
+            android:name=".compose_museum.c3_layout.CMLayoutColumnActivity"
+            android:theme="@style/Theme.GComposeTrip"
+            />
     </application>
 
 </manifest>
