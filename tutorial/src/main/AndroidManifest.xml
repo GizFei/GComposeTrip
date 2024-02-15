@@ -66,6 +66,10 @@
             android:name=".compose_museum.c2_basic_component.CMElementTextFieldActivity"
             android:theme="@style/Theme.GComposeTrip"
             />
+        <activity
+            android:name=".compose_museum.c3_layout.CMLayoutRowActivity"
+            android:theme="@style/Theme.GComposeTrip"
+            />
     </application>
 
 </manifest>

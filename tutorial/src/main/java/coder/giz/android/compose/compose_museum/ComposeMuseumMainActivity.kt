@@ -27,6 +27,7 @@ import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementImag
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementSliderActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementTextActivity
 import coder.giz.android.compose.compose_museum.c2_basic_component.CMElementTextFieldActivity
+import coder.giz.android.compose.compose_museum.c3_layout.CMLayoutRowActivity
 import coder.giz.android.compose.ui.theme.GComposeTripTheme
 import coder.giz.android.compose.utils.launch
 import kotlin.reflect.KClass
@@ -107,6 +108,15 @@ class ComposeMuseumMainActivity : ComponentActivity() {
             CommonLaunchActivityButton(
                 btnText = "TextField",
                 clz = CMElementTextFieldActivity::class,
+            )
+
+            Text(
+                text = "布局组件",
+                modifier = Modifier.padding(start = 16.dp, top = 16.dp)
+            )
+            CommonLaunchActivityButton(
+                btnText = "Row",
+                clz = CMLayoutRowActivity::class,
             )
         }
     }
