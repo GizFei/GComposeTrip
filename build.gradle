@@ -24,6 +24,9 @@ ext {
     activity_compose_version = '1.8.2'
     core_ktx_version = '1.12.0'
     lifecycle_runtime_ktx_version = '2.7.0'
+
+    orhanobut_logger_version = '2.2.0'
+    gson_version = '2.10'
 }
 
 task clean(type: Delete) {
